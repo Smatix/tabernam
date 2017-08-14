@@ -1,0 +1,14 @@
+{% extends "layout.html.twig"%}
+{%block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1">
+                {% for message in app.session.flashBag.get('success') %}
+                    <p class="success">{{ message }}</p>
+                {% endfor %}
+                <br/>
+                <a href="{{ path('home') }}">[ Strona główna ]</a>
+            </div>
+        </div>    
+    </div>
+{% endblock %}

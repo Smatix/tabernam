@@ -1,0 +1,53 @@
+{% extends "layout.html.twig"%}
+{%block content %}
+    <div  id="msg" class="container-fluid">
+        <div class="row">    
+            <div  class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
+                <h1>Potwierdzenie zamówienia</h1>
+                <table class="table">
+                    <tr>
+                    <td>Nazwa</td>
+                    <td id="name">{{product.name}}</td>
+                    </tr>
+
+                    <tr>
+                    <td>Kod</td>
+                    <td>{{product.code}}</td>
+                    </tr>
+                    
+                    <tr>
+                    <td>Ilość</td>
+                    <td id="amount">{{ amount }}</td>
+                    </tr>
+
+                    <tr>
+                    <td>Cena za sztukę</td>
+                    <td>{{product.price}} zł</td>
+                    </tr>
+
+                    <tr>
+                    <td>Do zapłaty</td>
+                    <td id="sum">{{ sum }} zł</td>
+                    </tr>
+
+                    <tr>
+                    <td>Sposób płatności</td>
+                    <td id="pay">{{ pay }}</td>
+                    </tr>
+
+                    <tr>
+                    <td>Adres</td>
+                    <td id="adress">{{ adress }}</td>
+                    </tr>
+
+                    <tr>
+                    <td>Zamawiający</td>
+                    <td>{{ app.user.name }}</td>
+                    </tr>
+                </table>
+                    
+                <a href="{{ path('add_order')}}" class="btn btn-success">Zatwierdź</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

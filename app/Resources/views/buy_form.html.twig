@@ -1,0 +1,25 @@
+{% extends "layout.html.twig"%}
+{%block content %}
+    <div class="container-fluid">
+        <div class="row">    
+            <div class="col-lg-4 col-lg-offset-4 col-md-10 col-md-offset-1">
+                <h1>Kupujesz {{product.name}}</h1>
+                <p>Kod: {{product.code}} </p>
+                <form method="post" action="{{ path('buy_summary', {'id': product.id}) }}">
+                    <label>Ilość:</label>
+                    <input type="number" class="form-control" name="amount">
+                    <label>Adres do wysyłki:</label>
+                    <input type="text" class="form-control" name="adress"><br/>
+                    <p>Sposób płatności</p>
+                    <input type="radio" value="przelew" name="pay" checked>Przelew<br/>
+                    <input type="radio" value="przyodbiorze" name="pay">Płatność przy odbiorze<br/>
+                    <input type="submit" class="btn btn-default" value="Akceptuj">
+                    
+                </form>
+                    {% for message in app.session.flashBag.get('error') %}
+                        <p class="error">{{ message }}</p>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

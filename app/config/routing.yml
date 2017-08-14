@@ -1,0 +1,32 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+home:
+     path:      /home
+     defaults:  { _controller: AppBundle:Product:index}
+
+product:
+     path:      /product/{id}
+     defaults:  { _controller: AppBundle:Product:showProduct}     
+     
+register:
+     path:      /register
+     defaults:  { _controller: AppBundle:User:register}
+     
+message:
+     path:      /mess
+     defaults:  { _controller: AppBundle:Base:Message}
+
+buy_summary:
+    path: /buy/{id}
+    defaults:  { _controller: AppBundle:Buy:BuySummary , id: 1}
+    methods: [POST]
+
+buy:
+    path: /buy/{id}
+    defaults:  { _controller: AppBundle:Buy:Buy, id: 1}
+   
+add_order:
+    path: /add_order
+    defaults:  { _controller: AppBundle:Orders:add}
