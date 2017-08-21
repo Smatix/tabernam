@@ -30,3 +30,11 @@ buy:
 add_order:
     path: /add_order
     defaults:  { _controller: AppBundle:Orders:add}
+
+login:
+    path: /login
+    defaults:  { _controller: AppBundle:Security:login}
+
+logout:
+    path: /logout
+    defaults:  { _controller: AppBundle:Security:logout}

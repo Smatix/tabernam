@@ -16,7 +16,7 @@ class UserController extends Controller
         
         $form->handleRequest($request);
         
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             
             $plainPassword = $form['password']->getData();
             $encoder = $this->container->get('security.password_encoder');
@@ -36,9 +36,9 @@ class UserController extends Controller
             return $this->redirectToRoute('message');
         }
         
-        return $this->render('register.html.twig', array(
+        return $this->render('register.html.twig', [
             'form' => $form->createView(),
-            ));
+        ]);
     }
     
    

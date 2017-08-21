@@ -16,18 +16,18 @@ class ProductController extends Controller
   
         $products = $this->getDoctrine()
         ->getRepository(Products::class)
-        ->getAll(array(
+        ->getAll([
             'cat' => $request->query->get('cat'),
             'min' => $request->query->get('min'),
             'max' => $request->query->get('max'),
             'sort' => $request->query->get('sort')
-        ));
+        ]);
         
-        return $this->render('products.html.twig', array(
+        return $this->render('products.html.twig', [
             'content' => $products,
             'last_username' => $lastUsername,
             'error'         => $error,
-        ));
+        ]);
     }
     
     public function showProductAction($id)
@@ -36,15 +36,10 @@ class ProductController extends Controller
         ->getRepository(Products::class)
         ->find($id);
         
-        if(!$product){
+        if (!$product) {
             throw $this->createNotFoundException('Strona nie istnieje');
         }
         
-        return $this->render('oneproduct.html.twig', array(
-            'product' => $product
-        ));
+        return $this->render('oneproduct.html.twig', ['product' => $product]);
     }
-    
-   
-    
 }

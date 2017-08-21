@@ -7,7 +7,6 @@ class BaseController extends Controller
 {
     public function MessageAction()
     {
-        return $this->render('message.html.twig', array(
-            ));
+        return $this->render('message.html.twig', []);
     }
 }
