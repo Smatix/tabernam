@@ -30,6 +30,10 @@ buy:
 add_order:
     path: /add_order
     defaults:  { _controller: AppBundle:Orders:add}
+    
+show_orders:
+    path: /myorders
+    defaults:  { _controller: AppBundle:Orders:showUserOrders}
 
 login:
     path: /login

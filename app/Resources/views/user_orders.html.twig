@@ -1,0 +1,30 @@
+{% extends "layout.html.twig"%}
+{%block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+               <h1>Moje zamówienia</h1>
+               {% for order in orders %}
+                   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 my-box">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12">
+                                <img  src="{{ asset(  order.idProduct.image  ) }}" height="180" width="180">
+                            </div>	
+                            <div class="col-lg-8 col-md-12">
+                                <a href="{{ path('product', {'id': order.idProduct.id}) }}">{{order.idProduct.producer}} {{order.idProduct.name}}</a>
+                                <p>Cena:  {{order.idProduct.price}} zł</p>
+                            </div>
+                        </div>
+                            <div class="row">
+                                 <div class="col-lg-12 col-md-12">
+                                     Ilość: {{ order.amount}}
+                                     Suma: {{ order.sum}}
+                                     
+                                 </div>
+                            </div>
+                    </div>
+               {% endfor %} 
+             </div>
+        </div>
+    </div>
+{% endblock %}

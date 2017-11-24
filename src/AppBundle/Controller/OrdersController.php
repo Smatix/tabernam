@@ -36,4 +36,16 @@ class OrdersController extends Controller
          $this->addFlash( 'success','Dziękujemy za złożenie zamówienia');
          return $this->redirectToRoute('message');
     }
+    
+    public function showUserOrdersAction()
+    {
+        $user =  $this->getUser();
+        $orders = $this->getDoctrine()
+        ->getRepository(Orders::class)
+        ->showByUser($user->getId());
+        
+         return $this->render('user_orders.html.twig', [
+            'orders' => $orders
+        ]);
+    }
 }

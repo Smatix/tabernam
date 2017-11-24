@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Products;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+
 class ProductController extends Controller
 {
     public function indexAction(Request $request)
@@ -13,7 +14,7 @@ class ProductController extends Controller
         $authUtils = $this->get('security.authentication_utils');
         $error = $authUtils->getLastAuthenticationError();
         $lastUsername = $authUtils->getLastUsername();
-  
+    
         $products = $this->getDoctrine()
         ->getRepository(Products::class)
         ->getAll([
